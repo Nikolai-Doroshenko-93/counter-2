@@ -1,0 +1,14 @@
+.counterWrapper {
+    width: 400px;
+    height: 300px;
+    border: 2px solid black;
+    margin: 50px;
+}
+.counterValueWrapper {
+    width: 150px;
+    height: 200px;
+    border: 2px solid black;
+}
+.counterValue {
+    font-size: 20px;
+}
