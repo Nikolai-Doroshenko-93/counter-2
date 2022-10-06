@@ -1,12 +1,38 @@
 .value {
-
+    color: white;
+    font-size: 49px;
+    width: 94px;
+    background-color: #120E06;
+    box-shadow: none;
+    border: none;
+    border-radius: 7px;
+    margin-top: 1px;
 }
+
 .switch {
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    cursor: pointer
+    width: 23px;
+    height: 23px;
+    border: 2px solid gray;
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+    border-radius: 100%;
 }
 .switch:hover {
-    border: 1px solid red;
+    border: 2px solid white;
+}
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 28px;
+}
+.valueWrapper {
+    width: 100px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.nameValue {
+    color: white;
+    margin-top: 20px;
 }

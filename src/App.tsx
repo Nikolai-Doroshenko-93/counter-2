@@ -5,18 +5,15 @@ import Counter from "./Counter/Counter";
 import Settings from "./Settings/Settings";
 
 
-
-
-
 export function App() {
 
     const [startValue, setStartValue] = useState<any>(0);
     const [maxValue, setMaxValue] = useState<any>(0)
 
-    useEffect( () => {
-            localStorage.setItem("startValue", JSON.stringify(startValue)),
-            [startValue]
-    })
+    // useEffect( () => {
+    //         localStorage.setItem("startValue", JSON.stringify(startValue)),
+    //         [startValue]
+    // })
     // useEffect( () => {
     //     let startValueString = localStorage.getItem("startValue")
     //     if (startValueString) {
@@ -25,10 +22,10 @@ export function App() {
     //     }
     // })
 
-    useEffect( () => {
-        localStorage.setItem("maxValue", JSON.stringify(maxValue)),
-            [maxValue]
-    })
+    // useEffect( () => {
+    //     localStorage.setItem("maxValue", JSON.stringify(maxValue)),
+    //         [maxValue]
+    // })
     // useEffect( () => {
     //    let maxValueString = localStorage.getItem("maxValue")
     //     if (maxValueString) {
@@ -39,7 +36,9 @@ export function App() {
 
   return (
     <div className="App">
-        <Counter/>
+        <Counter
+            startValue={startValue}
+        />
         <Settings
             //@ts-ignore
             startValue={startValue}

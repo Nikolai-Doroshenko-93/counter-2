@@ -1,5 +1,23 @@
 .buttonWrapper {
     width: 120px;
     height: 40px;
-    border: 2px solid aquamarine;
+    border: 2px solid gray;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
 }
+.buttonName {
+    color: gray;
+}
+.buttonWrapper:hover {
+    border: 2px solid white;
+    color: white;
+}
+.buttonWrapper:hover > .buttonName{
+
+    color: white;
+}
+

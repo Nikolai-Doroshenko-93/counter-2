@@ -1,11 +1,15 @@
 import React from "react";
 import s from "./Button.module.css"
 
-function Button() {
+type ButtonPropsType = {
+    nameButton: string
+}
+
+function Button(props: ButtonPropsType) {
     return (
         <div>
             <div className={s.buttonWrapper}>
-                <button>lalala</button>
+                    <span className={s.buttonName}>{props.nameButton}</span>
             </div>
         </div>
     );

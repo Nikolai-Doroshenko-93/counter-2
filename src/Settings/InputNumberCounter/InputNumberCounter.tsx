@@ -11,13 +11,17 @@ function InputNumberCounter(props: any) {
     const onClickHandlerDown = () => {
         props.setValue(props.value - 1)
     }
+
     return (
-        <div>
-            <div className={s.value}>
-                <span>{props.value}</span>
+        <div className={s.wrapper}>
+            <div className={s.valueWrapper}>
+                <input className={s.value} value={props.value}></input>
             </div>
-            <div className={s.switch} onClick={onClickHandlerUp}>+</div>
-            <div className={s.switch} onClick={onClickHandlerDown}>-</div>
+            <div className={s.nameValue}>{props.nameValue}</div>
+            <div>
+                <div className={s.switch} onClick={onClickHandlerUp}>&#5169;</div>
+                <div className={s.switch} onClick={onClickHandlerDown}>&#5167;</div>
+            </div>
         </div>
     );
 }

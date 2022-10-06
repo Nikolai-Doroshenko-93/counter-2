@@ -1,6 +1,15 @@
 .settingsWrapper {
     width: 400px;
-    height: 300px;
-    border: 2px solid black;
+    height: 320px;
+    border: 5px solid white;
     margin: 50px;
+    border-radius: 10px;
+}
+.content {
+    width: 60%;
+    margin: 50px auto;
+}
+.settingsButtonWrapper {
+    width: 120px;
+    margin: 0 auto;
 }
