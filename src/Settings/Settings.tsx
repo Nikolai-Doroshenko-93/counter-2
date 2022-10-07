@@ -1,34 +1,35 @@
 import React, {useState} from "react";
 import Button from "../Button/Button";
 import s from "./Settings.module.css"
-import InputNumberCounter from "./InputNumberCounter/InputNumberCounter";
+import {InputNumberCounter} from "./InputNumberCounter/InputNumberCounter";
 
 
-function Settings(props: any) {
-    const [startValue, setStartValue] = useState<any>(0);
-    const [maxValue, setMaxValue] = useState<any>(0)
+
+
+export function Settings(props: any) {
+
     return (
-        <div>
             <div className={s.settingsWrapper}>
                 <div className={s.content}>
 
                         <InputNumberCounter
                             nameValue={'START'}
-                            value={startValue}
-                            setValue={setStartValue}
+                            valueInput={props.startValue}
+                            setValue={props.setStartValue}
                         />
                         <InputNumberCounter
                             nameValue={'MAX'}
-                            value={maxValue}
-                            setValue={setMaxValue}
+                            valueInput={props.maxValue}
+                            setValue={props.setMaxValue}
                         />
 
                     <div className={s.settingsButtonWrapper}>
-                        <Button nameButton={'SET'}/>
+
+                        <Button nameButton={'SET'}
+                                onClickSetSettings={props.onClickSetSettings}/>
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 export default Settings

@@ -1,21 +1,25 @@
 import s from "./InputNumberCounter.module.css";
 import Button from "../../Button/Button";
-import React, {useState} from "react";
+import React, {ChangeEvent, useState} from "react";
 
 
 
-function InputNumberCounter(props: any) {
+export function InputNumberCounter(props: any) {
     const onClickHandlerUp = () => {
-        props.setValue(props.value + 1)
+        props.setValue(Number(props.valueInput) + 1)
     }
     const onClickHandlerDown = () => {
-        props.setValue(props.value - 1)
+        props.setValue(props.valueInput - 1)
     }
-
+    const onChangeHandler= (e: ChangeEvent<HTMLInputElement>) => {
+        let currentValue = e.currentTarget.value
+        props.setValue(currentValue)
+        console.log(currentValue)
+    }
     return (
         <div className={s.wrapper}>
             <div className={s.valueWrapper}>
-                <input className={s.value} value={props.value}></input>
+                <input className={s.input} value={props.valueInput} onChange={onChangeHandler} ></input>
             </div>
             <div className={s.nameValue}>{props.nameValue}</div>
             <div>
@@ -25,4 +29,3 @@ function InputNumberCounter(props: any) {
         </div>
     );
 }
-export default InputNumberCounter

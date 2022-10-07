@@ -5,11 +5,27 @@ import Counter from "./Counter/Counter";
 import Settings from "./Settings/Settings";
 
 
-export function App() {
+function App() {
 
-    const [startValue, setStartValue] = useState<any>(0);
-    const [maxValue, setMaxValue] = useState<any>(0)
+    const [startValueSettings, setStartValueSettings] = useState<any>(0);
+    const [maxValueSettings, setMaxValueSettings] = useState<any>(0)
+    const [optionValueForCounter, setValueForCounter] = useState<any>({
+        startValueCounter: 0,
+        maxValueCounter: 0
+    }
+)
+    const [counterValue, setCounterValue] = useState(optionValueForCounter.startValueCounter)
 
+    const onClickSetSettings = () => {
+        let valueForCounter = {
+            startValueCounter: startValueSettings,
+            maxValueCounter: maxValueSettings
+    }
+        setValueForCounter(valueForCounter)
+        setCounterValue(valueForCounter.startValueCounter)
+        console.log(valueForCounter)
+
+    }
     // useEffect( () => {
     //         localStorage.setItem("startValue", JSON.stringify(startValue)),
     //         [startValue]
@@ -33,18 +49,27 @@ export function App() {
     //         setMaxValue(newMaxValue)
     //     }
     // })
-
+    const incValueButton = () => {
+        setCounterValue( counterValue+1)
+    }
+    const resetValueButton = () => {
+        setCounterValue(optionValueForCounter.startValueCounter)
+    }
   return (
+
     <div className="App">
         <Counter
-            startValue={startValue}
+            counterValue={counterValue}
+            incValueButton={incValueButton}
+            resetValueButton={resetValueButton}
         />
         <Settings
-            //@ts-ignore
-            startValue={startValue}
-            setStartValue={setStartValue}
-            maxValue={maxValue}
-            setMaxValue={setMaxValue}
+            // //@ts-ignore
+            startValue={startValueSettings}
+            setStartValue={setStartValueSettings}
+            maxValue={maxValueSettings}
+            setMaxValue={setMaxValueSettings}
+            onClickSetSettings={onClickSetSettings}
         />
     </div>
   );

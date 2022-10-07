@@ -5,10 +5,21 @@ type ButtonPropsType = {
     nameButton: string
 }
 
-function Button(props: ButtonPropsType) {
+
+
+function Button(props: any) {
+    const buttonOptions = () => {
+        if (props.nameButton === 'SET') {
+            props.onClickSetSettings()
+        } else if (props.nameButton === 'INC') {
+            props.incValueButton()
+        } else if (props.nameButton === 'RESET') {
+            props.resetValueButton()
+        }
+    }
     return (
         <div>
-            <div className={s.buttonWrapper}>
+            <div className={s.buttonWrapper} onClick={buttonOptions}>
                     <span className={s.buttonName}>{props.nameButton}</span>
             </div>
         </div>
