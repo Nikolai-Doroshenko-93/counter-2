@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from "./Counter/Counter";
@@ -55,6 +55,8 @@ function App() {
     const resetValueButton = () => {
         setCounterValue(optionValueForCounter.startValueCounter)
     }
+
+
   return (
 
     <div className="App">
