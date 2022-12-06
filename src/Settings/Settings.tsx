@@ -11,22 +11,21 @@ export function Settings(props: any) {
     return (
             <div className={s.settingsWrapper}>
                 <div className={s.content}>
-
                         <InputNumberCounter
                             nameValue={'START'}
-                            valueInput={props.startValue}
-                            setValue={props.setStartValue}
+                            // valueInput={props.startValue}
+                            // setValue={props.setStartValue}
                         />
                         <InputNumberCounter
                             nameValue={'MAX'}
-                            valueInput={props.maxValue}
-                            setValue={props.setMaxValue}
+                            // valueInput={props.maxValue}
+                            // setValue={props.setMaxValue}
                         />
 
                     <div className={s.settingsButtonWrapper}>
-
                         <Button nameButton={'SET'}
-                                onClickSetSettings={props.onClickSetSettings}/>
+                                // onClickSetSettings={props.onClickSetSettings}
+                        />
                     </div>
                 </div>
             </div>

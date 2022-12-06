@@ -5,8 +5,6 @@ type ButtonPropsType = {
     nameButton: string
 }
 
-
-
 function Button(props: any) {
     const buttonOptions = () => {
         if (props.nameButton === 'SET') {

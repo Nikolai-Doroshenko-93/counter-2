@@ -26,29 +26,7 @@ function App() {
         console.log(valueForCounter)
 
     }
-    // useEffect( () => {
-    //         localStorage.setItem("startValue", JSON.stringify(startValue)),
-    //         [startValue]
-    // })
-    // useEffect( () => {
-    //     let startValueString = localStorage.getItem("startValue")
-    //     if (startValueString) {
-    //         let newStartValue = JSON.parse(startValueString)
-    //         setStartValue(newStartValue)
-    //     }
-    // })
 
-    // useEffect( () => {
-    //     localStorage.setItem("maxValue", JSON.stringify(maxValue)),
-    //         [maxValue]
-    // })
-    // useEffect( () => {
-    //    let maxValueString = localStorage.getItem("maxValue")
-    //     if (maxValueString) {
-    //         let newMaxValue = JSON.parse(maxValueString)
-    //         setMaxValue(newMaxValue)
-    //     }
-    // })
     const incValueButton = () => {
         setCounterValue( counterValue+1)
     }
@@ -61,17 +39,17 @@ function App() {
 
     <div className="App">
         <Counter
-            counterValue={counterValue}
-            incValueButton={incValueButton}
-            resetValueButton={resetValueButton}
+            // counterValue={counterValue}
+            // incValueButton={incValueButton}
+            // resetValueButton={resetValueButton}
         />
         <Settings
             // //@ts-ignore
-            startValue={startValueSettings}
-            setStartValue={setStartValueSettings}
-            maxValue={maxValueSettings}
-            setMaxValue={setMaxValueSettings}
-            onClickSetSettings={onClickSetSettings}
+            // startValue={startValueSettings}
+            // setStartValue={setStartValueSettings}
+            // maxValue={maxValueSettings}
+            // setMaxValue={setMaxValueSettings}
+            // onClickSetSettings={onClickSetSettings}
         />
     </div>
   );

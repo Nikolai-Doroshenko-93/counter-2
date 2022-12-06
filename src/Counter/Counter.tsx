@@ -9,15 +9,18 @@ import s from "./Counter.module.css"
 
 
 function Counter(props: any) {
-
     return (
         <div className={s.counterWrapper}>
             <div className={s.counterValueWrapper}>
                 <span className={s.counterValue}>{props.counterValue}</span>
             </div>
             <div className={s.buttonWrapper}>
-                <Button nameButton={'INC'} incValueButton={props.incValueButton}/>
-                <Button nameButton={'RESET'} resetValueButton={props.resetValueButton}/>
+                <Button nameButton={'INC'}
+                        // incValueButton={props.incValueButton}
+                />
+                <Button nameButton={'RESET'}
+                        // resetValueButton={props.resetValueButton}
+                />
             </div>
         </div>
     );
