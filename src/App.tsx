@@ -3,53 +3,32 @@ import logo from './logo.svg';
 import './App.css';
 import Counter from "./Counter/Counter";
 import Settings from "./Settings/Settings";
+import {useSelector} from "react-redux";
+import {AppStoreType} from "./redux/redux-store";
+
+
+type CounterStateType = {
+    startValue: number,
+    startValueInput: number,
+    maxValue: number,
+    maxValueInput: number,
+    valueCounter: number
+}
 
 
 function App() {
 
-    const [startValueSettings, setStartValueSettings] = useState<any>(0);
-    const [maxValueSettings, setMaxValueSettings] = useState<any>(0)
-    const [optionValueForCounter, setValueForCounter] = useState<any>({
-        startValueCounter: 0,
-        maxValueCounter: 0
-    }
-)
-    const [counterValue, setCounterValue] = useState(optionValueForCounter.startValueCounter)
-
-    const onClickSetSettings = () => {
-        let valueForCounter = {
-            startValueCounter: startValueSettings,
-            maxValueCounter: maxValueSettings
-    }
-        setValueForCounter(valueForCounter)
-        setCounterValue(valueForCounter.startValueCounter)
-        console.log(valueForCounter)
-
-    }
-
-    const incValueButton = () => {
-        setCounterValue( counterValue+1)
-    }
-    const resetValueButton = () => {
-        setCounterValue(optionValueForCounter.startValueCounter)
-    }
+    const counterState = useSelector<AppStoreType, CounterStateType>(state => state.counterState)
 
 
   return (
 
     <div className="App">
         <Counter
-            // counterValue={counterValue}
-            // incValueButton={incValueButton}
-            // resetValueButton={resetValueButton}
+
         />
         <Settings
-            // //@ts-ignore
-            // startValue={startValueSettings}
-            // setStartValue={setStartValueSettings}
-            // maxValue={maxValueSettings}
-            // setMaxValue={setMaxValueSettings}
-            // onClickSetSettings={onClickSetSettings}
+
         />
     </div>
   );
