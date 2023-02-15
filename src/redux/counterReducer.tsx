@@ -9,7 +9,7 @@ let INPUT_MAX_VALUE_DOWN = 'INPUT_MAX_VALUE_DOWN';
 let BUTTON_SET_SETTINGS = ' BUTTON_SET_SETTINGS'
 
 
-let initialState = {
+const initialState = {
     startValue: 0,
     startValueInput: 0,
     maxValue: 0,
@@ -17,7 +17,7 @@ let initialState = {
     valueCounter: 0
 }
 
-const counterReducer = (state= initialState, action: any) => {
+const counterReducer = (state: any = initialState, action: any): any => {
     switch (action.type) {
         case BUTTON_INC: {
             return {

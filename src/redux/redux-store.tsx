@@ -10,7 +10,7 @@ const store = legacy_createStore(rootReducer)
 
 export default store
 
-export type AppStoreType = ReturnType<typeof counterReducer>
+export type AppStoreType = ReturnType<typeof rootReducer>
 
 // @ts-ignore
 window.store = store

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Counter from "./Counter/Counter";
 import Settings from "./Settings/Settings";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "./redux/redux-store";
 
 
@@ -19,7 +19,7 @@ type CounterStateType = {
 function App() {
 
     const counterState = useSelector<AppStoreType, CounterStateType>(state => state.counterState)
-
+    const dispatch = useDispatch()
 
   return (
 
