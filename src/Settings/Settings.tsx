@@ -6,20 +6,25 @@ import {InputNumberCounter} from "./InputNumberCounter/InputNumberCounter";
 
 
 
+
 export function Settings(props: any) {
+
+
 
     return (
             <div className={s.settingsWrapper}>
                 <div className={s.content}>
                         <InputNumberCounter
                             nameValue={'START'}
-                            // valueInput={props.startValue}
-                            // setValue={props.setStartValue}
+                            value={props.state.startValueInput}
+                            // upNumber={props.inputStartValueUp}
+                            // downNumber={props.inputStartValueDown}
                         />
                         <InputNumberCounter
                             nameValue={'MAX'}
-                            // valueInput={props.maxValue}
-                            // setValue={props.setMaxValue}
+                            value={props.state.maxValueInput}
+                            // upNumber={props.inputMaxValueUp}
+                            // downNumber={props.inputMaxValueDown}
                         />
 
                     <div className={s.settingsButtonWrapper}>
