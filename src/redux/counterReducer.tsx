@@ -22,7 +22,7 @@ const counterReducer = (state: any = initialState, action: any): any => {
         case BUTTON_INC: {
             return {
                 ...state,
-                valueCounter: state.valueCounter + 1
+                valueCounter: (state.valueCounter + 1)
             }
             }
         case BUTTON_RESET: {
@@ -34,25 +34,25 @@ const counterReducer = (state: any = initialState, action: any): any => {
         case INPUT_START_VALUE_UP: {
             return {
                 ...state,
-                startValueInput: state.startValueInput + 1,
+                startValueInput: (state.startValueInput + 1)
             }
         }
         case INPUT_START_VALUE_DOWN: {
             return {
                 ...state,
-                startValueInput: state.startValueInput - 1
+                startValueInput: (state.startValueInput - 1)
             }
         }
         case INPUT_MAX_VALUE_UP: {
             return {
                 ...state,
-                maxValueInput: state.startValueInput + 1
+                maxValueInput: (state.startValueInput + 1)
             }
         }
         case INPUT_MAX_VALUE_DOWN: {
             return {
                 ...state,
-                maxValueInput: state.maxValueInput-1
+                maxValueInput: (state.maxValueInput-1)
             }
         }
         case BUTTON_SET_SETTINGS: {
