@@ -11,16 +11,18 @@ export function InputNumberCounter(props: any) {
         <div className={s.wrapper}>
             <div className={s.valueWrapper}>
                 <input className={s.input}
-
+                       value={props.value}
                 ></input>
             </div>
             <div className={s.nameValue}>{props.nameValue}</div>
             <div>
-                <div className={s.switch}
-
+                <div
+                    className={s.switch}
+                    onClick={props.upNumber}
                 >&#5169;</div>
-                <div className={s.switch}
-
+                <div
+                    className={s.switch}
+                    onClick={props.downNumber}
                 >&#5167;</div>
             </div>
         </div>

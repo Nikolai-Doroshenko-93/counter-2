@@ -5,6 +5,13 @@ import Counter from "./Counter/Counter";
 import Settings from "./Settings/Settings";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "./redux/redux-store";
+import {
+    buttonIncAC,
+    buttonResetAC, buttonSetSettingsAC, inputMaxValueDownAC,
+    inputMaxValueUpAC,
+    inputStartValueDownAC,
+    inputStartValueUpAC
+} from "./redux/counterReducer";
 
 
 type CounterStateType = {
@@ -18,17 +25,32 @@ type CounterStateType = {
 
 function App() {
 
-    const counterState = useSelector<AppStoreType, CounterStateType>(state => state.counterState)
+    const state = useSelector<AppStoreType, CounterStateType>(state => state.state)
     const dispatch = useDispatch()
 
-  return (
+    // const buttonInc = dispatch(buttonIncAC())
+    // const buttonReset = dispatch(buttonResetAC())
+    // const inputStartValueUp = dispatch (inputStartValueUpAC())
+    // const inputStartValueDown = dispatch(inputStartValueDownAC())
+    // const inputMaxValueUp = dispatch(inputMaxValueUpAC())
+    // const inputMaxValueDown = dispatch(inputMaxValueDownAC())
+    // const buttonSetSettings = dispatch(buttonSetSettingsAC())
+
+    return (
 
     <div className="App">
         <Counter
-
+            state={state}
+            // buttonInc={buttonInc}
+            // buttonReset={buttonReset}
         />
         <Settings
-
+            state={state}
+            // inputStartValueUp={inputStartValueUp}
+            // inputStartValueDown={inputStartValueDown}
+            // inputMaxValueUp={inputMaxValueUp}
+            // inputMaxValueDown={inputMaxValueDown}
+            // buttonSetSettings={buttonSetSettings}
         />
     </div>
   );

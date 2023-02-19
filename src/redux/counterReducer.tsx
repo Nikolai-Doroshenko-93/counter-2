@@ -24,7 +24,7 @@ const counterReducer = (state: any = initialState, action: any): any => {
                 ...state,
                 valueCounter: (state.valueCounter + 1)
             }
-            }
+        }
         case BUTTON_RESET: {
             return {
                 ...state,
@@ -62,15 +62,19 @@ const counterReducer = (state: any = initialState, action: any): any => {
                 maxValue: state.maxValueInput
             }
         }
+        default:
+            return state
+
     }
+
 }
-export const buttonIncAC = () => ({type: BUTTON_INC})
-export const buttonReset = () => ({type: BUTTON_RESET})
-export const inputStartValueUpAC = () => ({type: INPUT_START_VALUE_UP})
-export const inputStartValueDownAC = () => ({type: INPUT_START_VALUE_DOWN})
-export const inputMaxValueUpAC = () => ({type: INPUT_MAX_VALUE_UP})
-export const inputMaxValueDownAC = () => ({type: INPUT_MAX_VALUE_DOWN})
-export const buttonSetSettingsAC = () => ({type: BUTTON_SET_SETTINGS})
+export const buttonIncAC = () => {return {type: BUTTON_INC}}
+export const buttonResetAC = () => {return {type: BUTTON_RESET}}
+export const inputStartValueUpAC = () => {return {type: INPUT_START_VALUE_UP}}
+export const inputStartValueDownAC = () => {return {type: INPUT_START_VALUE_DOWN}}
+export const inputMaxValueUpAC = () => {return {type: INPUT_MAX_VALUE_UP}}
+export const inputMaxValueDownAC = () => {return {type: INPUT_MAX_VALUE_DOWN}}
+export const buttonSetSettingsAC = () => {return {type: BUTTON_SET_SETTINGS}}
 
 
 export default counterReducer

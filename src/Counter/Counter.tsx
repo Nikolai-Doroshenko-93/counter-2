@@ -12,7 +12,9 @@ function Counter(props: any) {
     return (
         <div className={s.counterWrapper}>
             <div className={s.counterValueWrapper}>
-                <span className={s.counterValue}>{props.counterValue}</span>
+                <span className={s.counterValue}>
+                    {props.state.startValue}
+                </span>
             </div>
             <div className={s.buttonWrapper}>
                 <Button nameButton={'INC'}
