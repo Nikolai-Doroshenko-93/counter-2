@@ -6,9 +6,8 @@ const rootReducer = combineReducers({
     state: counterReducer
 })
 
-const store = legacy_createStore(rootReducer)
+export const store = legacy_createStore(rootReducer)
 
-export default store
 
 export type AppStoreType = ReturnType<typeof rootReducer>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "../Button/Button";
 import s from "./Counter.module.css"
 
@@ -10,18 +10,20 @@ import s from "./Counter.module.css"
 
 function Counter(props: any) {
     return (
+
         <div className={s.counterWrapper}>
             <div className={s.counterValueWrapper}>
-                <span className={s.counterValue}>
-                    {props.state.startValue}
+                <span className={!props.state.counterIsMax ? s.counterValue : s.counterValueIsMax}>
+                    {props.state.valueCounter}
                 </span>
             </div>
             <div className={s.buttonWrapper}>
                 <Button nameButton={'INC'}
-                        // incValueButton={props.incValueButton}
+                        buttonInc={props.buttonInc}
+
                 />
                 <Button nameButton={'RESET'}
-                        // resetValueButton={props.resetValueButton}
+                        buttonReset={props.buttonReset}
                 />
             </div>
         </div>

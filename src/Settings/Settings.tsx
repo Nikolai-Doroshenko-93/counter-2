@@ -9,7 +9,7 @@ import {InputNumberCounter} from "./InputNumberCounter/InputNumberCounter";
 
 export function Settings(props: any) {
 
-
+const [error, setError] = useState(false)
 
     return (
             <div className={s.settingsWrapper}>
@@ -17,8 +17,9 @@ export function Settings(props: any) {
                         <InputNumberCounter
                             nameValue={'START'}
                             value={props.state.startValueInput}
-                            // upNumber={props.inputStartValueUp}
-                            // downNumber={props.inputStartValueDown}
+                            upNumber={props.inputStartValueUp}
+                            downNumber={props.inputStartValueDown}
+                            inputOnChange={props.inputOnChangeStartValue}
                         />
                         <InputNumberCounter
                             nameValue={'MAX'}

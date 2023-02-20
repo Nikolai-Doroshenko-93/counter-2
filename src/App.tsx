@@ -1,5 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import logo from './logo.svg';
+import React, {ChangeEvent, useCallback, useEffect, useState} from 'react';
 import './App.css';
 import Counter from "./Counter/Counter";
 import Settings from "./Settings/Settings";
@@ -8,7 +7,7 @@ import {AppStoreType} from "./redux/redux-store";
 import {
     buttonIncAC,
     buttonResetAC, buttonSetSettingsAC, inputMaxValueDownAC,
-    inputMaxValueUpAC,
+    inputMaxValueUpAC, inputOnChangeStartValueAC,
     inputStartValueDownAC,
     inputStartValueUpAC
 } from "./redux/counterReducer";
@@ -28,9 +27,25 @@ function App() {
     const state = useSelector<AppStoreType, CounterStateType>(state => state.state)
     const dispatch = useDispatch()
 
-    // const buttonInc = dispatch(buttonIncAC())
-    // const buttonReset = dispatch(buttonResetAC())
-    // const inputStartValueUp = dispatch (inputStartValueUpAC())
+    const buttonInc = useCallback(() => {
+        dispatch(buttonIncAC(state.valueCounter))
+    }, [state.valueCounter])
+
+    const buttonReset = useCallback(() => {
+        dispatch(buttonResetAC(state.startValue))
+    }, [])
+
+
+    const inputStartValueUp = useCallback(() => {
+        dispatch (inputStartValueUpAC(state.startValueInput))
+    }, [state.startValueInput])
+    const inputStartValueDown = useCallback(() => {
+        dispatch (inputStartValueDownAC(state.startValueInput))
+    }, [state.startValueInput])
+    const inputOnChangeStartValue = useCallback(() => {
+        dispatch (inputOnChangeStartValueAC(state.startValueInput))
+    }, [state.startValueInput])
+    // const inputStartValueUp = dispatch (inputStartValueUpAC(state.startValueInputUp))
     // const inputStartValueDown = dispatch(inputStartValueDownAC())
     // const inputMaxValueUp = dispatch(inputMaxValueUpAC())
     // const inputMaxValueDown = dispatch(inputMaxValueDownAC())
@@ -41,13 +56,13 @@ function App() {
     <div className="App">
         <Counter
             state={state}
-            // buttonInc={buttonInc}
-            // buttonReset={buttonReset}
+            buttonInc={buttonInc}
+            buttonReset={buttonReset}
         />
         <Settings
             state={state}
-            // inputStartValueUp={inputStartValueUp}
-            // inputStartValueDown={inputStartValueDown}
+            inputStartValueUp={inputStartValueUp}
+            inputStartValueDown={inputStartValueDown}
             // inputMaxValueUp={inputMaxValueUp}
             // inputMaxValueDown={inputMaxValueDown}
             // buttonSetSettings={buttonSetSettings}

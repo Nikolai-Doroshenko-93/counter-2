@@ -20,6 +20,13 @@
     top: 35px;
     background-color: #120E06;
 }
+.counterValueIsMax {
+    color: red;
+    font-size: 80px;
+    position: relative;
+    top: 35px;
+    background-color: #120E06;
+}
 .buttonWrapper {
     display: flex;
     justify-content: space-around;
