@@ -17,9 +17,11 @@ function Button(props: any) {
     }
     return (
         <div>
-            <div className={s.buttonWrapper} onClick={() => buttonOptions(props.nameButton)}>
+            <button className={props.errorInputValue ? s.buttonWrapperError : s.buttonWrapper}
+                    disabled={props.errorInputValue}
+                 onClick={() => buttonOptions(props.nameButton)}>
                     <span className={s.buttonName}>{props.nameButton}</span>
-            </div>
+            </button>
         </div>
     );
 }

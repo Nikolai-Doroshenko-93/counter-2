@@ -6,16 +6,16 @@ import React, {ChangeEvent, useState} from "react";
 
 export function InputNumberCounter(props: any) {
 
-    const [value, setValue] = useState(props.value)
-
-    const onChangeValueInput = (e: ChangeEvent<HTMLInputElement>) => setValue(e.currentTarget.value)
+    // const [value, setValue] = useState(props.value)
+    //
+    // const onChangeValueInput = (e: ChangeEvent<HTMLInputElement>) => setValue(e.currentTarget.value)
 
     return (
         <div className={s.wrapper}>
-            <div className={s.valueWrapper}>
+            <div className={props.errorInputValue ? s.valueWrapperWithError: s.valueWrapper}>
                 <input className={s.input}
                        value={props.value}
-                       onChange={onChangeValueInput}
+                       // onChange={onChangeValueInput}
                 ></input>
             </div>
             <div className={s.nameValue}>{props.nameValue}</div>

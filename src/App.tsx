@@ -42,14 +42,23 @@ function App() {
     const inputStartValueDown = useCallback(() => {
         dispatch (inputStartValueDownAC(state.startValueInput))
     }, [state.startValueInput])
-    const inputOnChangeStartValue = useCallback(() => {
-        dispatch (inputOnChangeStartValueAC(state.startValueInput))
-    }, [state.startValueInput])
-    // const inputStartValueUp = dispatch (inputStartValueUpAC(state.startValueInputUp))
-    // const inputStartValueDown = dispatch(inputStartValueDownAC())
-    // const inputMaxValueUp = dispatch(inputMaxValueUpAC())
-    // const inputMaxValueDown = dispatch(inputMaxValueDownAC())
-    // const buttonSetSettings = dispatch(buttonSetSettingsAC())
+
+    // const inputOnChangeStartValue = useCallback(() => {
+    //     dispatch (inputOnChangeStartValueAC(state.startValueInput))
+    // }, [state.startValueInput])
+
+
+    const inputMaxValueUp = useCallback(() => {
+        dispatch (inputMaxValueUpAC(state.maxValueInput))
+    }, [state.maxValueInput])
+    const inputMaxValueDown = useCallback(() => {
+        dispatch (inputMaxValueDownAC(state.maxValueInput))
+    }, [state.maxValueInput])
+
+
+    const buttonSetSettings = useCallback(() => {
+        dispatch(buttonSetSettingsAC())
+    },[])
 
     return (
 
@@ -63,9 +72,9 @@ function App() {
             state={state}
             inputStartValueUp={inputStartValueUp}
             inputStartValueDown={inputStartValueDown}
-            // inputMaxValueUp={inputMaxValueUp}
-            // inputMaxValueDown={inputMaxValueDown}
-            // buttonSetSettings={buttonSetSettings}
+            inputMaxValueUp={inputMaxValueUp}
+            inputMaxValueDown={inputMaxValueDown}
+            buttonSetSettings={buttonSetSettings}
         />
     </div>
   );

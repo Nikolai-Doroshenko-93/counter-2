@@ -17,9 +17,10 @@ const initialState = {
     startValue: 0,
     startValueInput: 0,
     maxValue: 3,
-    maxValueInput: 3,
+    maxValueInput: 1,
     valueCounter: 0,
-    counterIsMax: false
+    counterIsMax: false,
+    errorInputValue: false
 }
 
 const counterReducer = (state: any = initialState, action: any): any => {
@@ -28,6 +29,7 @@ const counterReducer = (state: any = initialState, action: any): any => {
             return (state.valueCounter !== state.maxValue) ? {
                 ...state,
                 valueCounter: (action.valueCounter + 1),
+                counterIsMax: (state.valueCounter + 1 == state.maxValue)
             } : {
                 ...state,
                 counterIsMax: true
@@ -44,37 +46,41 @@ const counterReducer = (state: any = initialState, action: any): any => {
             return {
                 ...state,
                 startValueInput: action.startValueInput + 1,
+                errorInputValue: (state.maxValueInput <= action.startValueInput + 1 || action.startValueInput + 1 < 0)
             }
         }
         case INPUT_START_VALUE_DOWN: {
             return {
                 ...state,
-                startValueInput: action.startValueInput - 1
+                startValueInput: action.startValueInput - 1,
+                errorInputValue: (state.maxValueInput <= action.startValueInput - 1 || action.startValueInput - 1 < 0)
             }
         }
-        case INPUT_ONCHANGE_START_VALUE: {
-            return {
-                ...state,
-                startValueInput: action.startValueInput
-            }
-        }
+        // case INPUT_ONCHANGE_START_VALUE: {
+        //     return {
+        //         ...state,
+        //         startValueInput: action.startValueInput
+        //     }
+        // }
         case INPUT_MAX_VALUE_UP: {
             return {
                 ...state,
-                maxValueInput: action.startValueInput + 1
+                maxValueInput: action.maxValueInput + 1,
+                errorInputValue: (action.maxValueInput + 1 <= state.startValueInput || action.maxValueInput + 1 < 0)
             }
         }
         case INPUT_MAX_VALUE_DOWN: {
             return {
                 ...state,
-                maxValueInput: action.maxValueInput-1
+                maxValueInput: action.maxValueInput-1,
+                errorInputValue: (action.maxValueInput-1 <= state.startValueInput || action.maxValueInput-1 < 0)
             }
         }
         case BUTTON_SET_SETTINGS: {
             return {
                 ...state,
-                startValue: action.startValueInput,
-                maxValue: action.maxValueInput
+                startValue: state.startValueInput,
+                maxValue: state.maxValueInput
             }
         }
         default:
@@ -112,8 +118,16 @@ export const inputOnChangeStartValueAC = (startValueInput: number) => {
         startValueInput
     }
 }
-export const inputMaxValueUpAC = () => {return {type: INPUT_MAX_VALUE_UP}}
-export const inputMaxValueDownAC = () => {return {type: INPUT_MAX_VALUE_DOWN}}
+export const inputMaxValueUpAC = (maxValueInput: number) => {
+    return {
+        type: INPUT_MAX_VALUE_UP,
+        maxValueInput
+    }}
+export const inputMaxValueDownAC = (maxValueInput: number) => {
+    return {
+        type: INPUT_MAX_VALUE_DOWN,
+        maxValueInput
+    }}
 export const buttonSetSettingsAC = () => {return {type: BUTTON_SET_SETTINGS}}
 
 

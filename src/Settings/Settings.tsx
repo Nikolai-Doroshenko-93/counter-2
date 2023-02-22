@@ -20,17 +20,20 @@ const [error, setError] = useState(false)
                             upNumber={props.inputStartValueUp}
                             downNumber={props.inputStartValueDown}
                             inputOnChange={props.inputOnChangeStartValue}
+                            errorInputValue={props.state.errorInputValue}
                         />
                         <InputNumberCounter
                             nameValue={'MAX'}
                             value={props.state.maxValueInput}
-                            // upNumber={props.inputMaxValueUp}
-                            // downNumber={props.inputMaxValueDown}
+                            upNumber={props.inputMaxValueUp}
+                            downNumber={props.inputMaxValueDown}
+                            errorInputValue={props.state.errorInputValue}
                         />
 
                     <div className={s.settingsButtonWrapper}>
                         <Button nameButton={'SET'}
-                                // onClickSetSettings={props.onClickSetSettings}
+                                buttonSetSettings={props.buttonSetSettings}
+                                errorInputValue={props.state.errorInputValue}
                         />
                     </div>
                 </div>
