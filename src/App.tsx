@@ -27,6 +27,8 @@ function App() {
     const state = useSelector<AppStoreType, CounterStateType>(state => state.state)
     const dispatch = useDispatch()
 
+
+
     const buttonInc = useCallback(() => {
         dispatch(buttonIncAC(state.valueCounter))
     }, [state.valueCounter])

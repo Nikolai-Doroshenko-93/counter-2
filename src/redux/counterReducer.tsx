@@ -5,7 +5,7 @@ let BUTTON_RESET = 'BUTTON_RESET';
 
 let INPUT_START_VALUE_UP = 'INPUT_START_VALUE_UP';
 let INPUT_START_VALUE_DOWN = 'INPUT_START_VALUE_DOWN';
-let INPUT_ONCHANGE_START_VALUE = 'INPUT_ONCHANGE_START_VALUE '
+
 
 let INPUT_MAX_VALUE_UP = 'INPUT_MAX_VALUE_UP';
 let INPUT_MAX_VALUE_DOWN = 'INPUT_MAX_VALUE_DOWN';
@@ -56,12 +56,6 @@ const counterReducer = (state: any = initialState, action: any): any => {
                 errorInputValue: (state.maxValueInput <= action.startValueInput - 1 || action.startValueInput - 1 < 0)
             }
         }
-        // case INPUT_ONCHANGE_START_VALUE: {
-        //     return {
-        //         ...state,
-        //         startValueInput: action.startValueInput
-        //     }
-        // }
         case INPUT_MAX_VALUE_UP: {
             return {
                 ...state,
@@ -80,7 +74,8 @@ const counterReducer = (state: any = initialState, action: any): any => {
             return {
                 ...state,
                 startValue: state.startValueInput,
-                maxValue: state.maxValueInput
+                maxValue: state.maxValueInput,
+                valueCounter: state.startValueInput
             }
         }
         default:
