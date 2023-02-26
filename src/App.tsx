@@ -5,21 +5,13 @@ import Settings from "./Settings/Settings";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "./redux/redux-store";
 import {
-    buttonIncAC,
-    buttonResetAC, buttonSetSettingsAC, inputMaxValueDownAC,
-    inputMaxValueUpAC, inputOnChangeStartValueAC,
-    inputStartValueDownAC,
+    buttonIncAC, buttonResetAC, buttonSetSettingsAC, CounterStateType,
+    inputMaxValueDownAC, inputMaxValueUpAC, inputStartValueDownAC,
     inputStartValueUpAC
 } from "./redux/counterReducer";
 
 
-type CounterStateType = {
-    startValue: number,
-    startValueInput: number,
-    maxValue: number,
-    maxValueInput: number,
-    valueCounter: number
-}
+
 
 
 function App() {
@@ -34,7 +26,7 @@ function App() {
     }, [state.valueCounter])
 
     const buttonReset = useCallback(() => {
-        dispatch(buttonResetAC(state.startValue))
+        dispatch(buttonResetAC())
     }, [])
 
 
